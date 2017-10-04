@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 buildscript {
-    ext.kotlin_version = '1.1.50'
+    ext.kotlin_version = '1.1.51'
 
     repositories {
         maven {
@@ -59,6 +59,7 @@ dependencies {
     //Rx
     compile 'javax.inject:javax.inject:1'
 
-    //Logging
-    compile "com.github.armcha:Logger:$loggerVersion"
+    //Image loading
+    compile "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 }

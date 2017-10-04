@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity
 import io.armcha.ribble.R
 import io.armcha.ribble.di.scope.PerActivity
 import io.armcha.ribble.presentation.utils.Experimental
-import io.armcha.ribble.presentation.utils.extensions.log
 import javax.inject.Inject
 
 /**
@@ -31,14 +30,14 @@ class Navigator @Inject constructor(private val activity: AppCompatActivity,
     private var rootTag: String? = null
     private var isCustomAnimationUsed = false
 
-    private fun runDebugLog() {
-        log {
-            "Chain [${fragmentMap.size}] - ${fragmentMap.keys.joinToString(" -> ") {
-                val split: List<String> = it.split(".")
-                split[split.size - 1]
-            }}"
-        }
-    }
+//    private fun runDebugLog() {
+//        log {
+//            "Chain [${fragmentMap.size}] - ${fragmentMap.keys.joinToString(" -> ") {
+//                val split: List<String> = it.split(".")
+//                split[split.size - 1]
+//            }}"
+//        }
+//    }
 
     private fun addOpenTransition(transaction: FragmentTransaction, withCustomAnimation: Boolean) {
         if (withCustomAnimation) {
@@ -90,7 +89,7 @@ class Navigator @Inject constructor(private val activity: AppCompatActivity,
             show(fragmentMap[activeTag]?.fragment)
         }
         invokeFragmentChangeListener(activeTag)
-        runDebugLog()
+//        runDebugLog()
     }
 
     inline fun <reified T : Fragment> goTo(keepState: Boolean = true,
@@ -152,7 +151,7 @@ class Navigator @Inject constructor(private val activity: AppCompatActivity,
 
         fragmentMap.replaceValue(tag, fragmentMap[tag])
 
-        runDebugLog()
+//        runDebugLog()
     }
 
     fun hasBackStack(): Boolean {
@@ -191,7 +190,7 @@ class Navigator @Inject constructor(private val activity: AppCompatActivity,
         isCustomAnimationUsed = false
         activeTag = currentTag
         invokeFragmentChangeListener(currentTag)
-        runDebugLog()
+//        runDebugLog()
     }
 
     private inline fun FragmentManager.inTransaction(transaction: FragmentTransaction.() -> Unit) {

@@ -37,10 +37,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportlibraryVersion"
     compile "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
 
-    compile "android.arch.lifecycle:runtime:$archVersion"
-    compile "android.arch.lifecycle:extensions:$archVersion"
-    annotationProcessor "android.arch.lifecycle:compiler:$archVersion"
-
     compile project(":ribblemenu")
 
     testCompile 'junit:junit:4.12'
