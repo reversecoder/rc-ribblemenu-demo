@@ -1,0 +1,52 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext.kotlin_version = '1.1.50'
+
+    repositories {
+        maven {
+            url 'https://maven.google.com'
+        }
+        jcenter()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0-beta7'
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://maven.google.com'
+        }
+        jcenter()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
+    }
+
+    ext.appVersionCode = 100
+    ext.appVersionName = "1.0.0"
+    ext.appMinSdkVersion = 15
+    ext.appTargetSdkVersion = 26
+    ext.appCompileSdkVersion = 26
+    ext.appBuildToolsVersion = '26.0.2'
+    ext.supportlibraryVersion = '26.1.0'
+    ext.archVersion = '1.0.0-alpha8'
+    ext.constraintLayoutVersion = '1.0.2'
+    ext.loggerVersion = '2.2.0'
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
